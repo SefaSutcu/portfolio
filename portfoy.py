@@ -341,9 +341,9 @@ def mail_gonder(icerik):
             raise ValueError("Boş veya geçersiz rapor içeriği")
 
         # E-posta ayarları - Direkt kodda tanımlandı
-        from_addr = "sefasmt@gmail.com"
-        to_addr = "sefasmt@gmail.com" 
-        app_pass = "qtab ikxe ytrf dtre"
+        from_addr = os.getenv(SMTP_USER)
+        to_addr = os.getenv(SMTP_TO)
+        app_pass = os.getenv(SMTP_PASS)
 
         # E-posta oluştur
         msg = MIMEText(icerik, "plain", "utf-8")
@@ -386,4 +386,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
